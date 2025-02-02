@@ -248,7 +248,7 @@
     <p>Clarity in decision-making leads to better forecasting, planning, and execution.</p>
     
     <!-- Flowchart representation with animation -->
-    <div class="flowchart">
+    <div class="flowchart" id="flowchart">
         <div class="flow-step" id="step1">
             <img src="https://keithdear001.github.io/Cassi-Webpage/goal_icon.png" alt="Goal Setting Icon">
             <p><strong>Step 1:</strong> Define your outcome: What do you want to achieve?</p>
@@ -266,11 +266,11 @@
     </div>
     
     <p class="source-text">
-        Sources:<br>
+        <small>Sources:<br>
         Shapira, L. (2019) 'Specificity: Your Brain’s Superpower', <em>LessWrong Blog</em>, 2 September.<br>
         Hetherington, J. & Dear, K. (2016) 'Assessing Assessments: How Useful is Predictive Intelligence?', <em>Air Power Review</em>, 19(3), pp. 76-88. Royal Air Force Centre for Air Power Studies.<br>
         Dear, K. (2019) 'More Science, Less Art: Big Data, The Information Revolution and Decision-Making in the Royal Air Force', <em>Air Power Review</em>, 22(2), pp. 76-89. Royal Air Force Centre for Air Power Studies.<br>
-        (Accessed: 2 Feb 2025)
+        (Accessed: 2 Feb 2025)</small>
     </p>
 </div>
 
@@ -288,9 +288,11 @@
         text-align: center;
         padding: 20px;
         gap: 20px;
+        flex-wrap: wrap;
     }
     .flow-step {
         width: 30%;
+        min-width: 200px;
         background: #002147;
         color: white;
         border-radius: 8px;
@@ -298,13 +300,14 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         transition: transform 0.3s ease-in-out, opacity 0.6s ease-in-out;
         opacity: 0;
+        text-align: center;
     }
     .flow-step:hover {
         transform: scale(1.05);
         background: #007BFF;
     }
     .flow-step img {
-        width: 60px;
+        width: 50px;
         height: auto;
         margin-bottom: 10px;
     }
@@ -316,19 +319,54 @@
         transition: opacity 0.6s ease-in-out;
     }
     
-    /* Animation */
-    .flow-step:nth-child(1) { animation: fadeIn 1s forwards 0.5s; }
-    .flow-step:nth-child(3) { animation: fadeIn 1s forwards 1s; }
-    .flow-step:nth-child(5) { animation: fadeIn 1s forwards 1.5s; }
-    .flow-arrow:nth-child(2) { animation: fadeIn 1s forwards 0.75s; }
-    .flow-arrow:nth-child(4) { animation: fadeIn 1s forwards 1.25s; }
-
+    /* Animation triggers when in viewport */
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
     }
+
+    .flow-step.visible { opacity: 1; animation: fadeIn 1s ease-in-out forwards; }
+    .flow-arrow.visible { opacity: 1; animation: fadeIn 1s ease-in-out forwards; }
+
+    /* Responsive Fix for Mobile */
+    @media (max-width: 768px) {
+        .flowchart {
+            flex-direction: column;
+            align-items: center;
+        }
+        .flow-step {
+            width: 80%;
+            margin-bottom: 15px;
+        }
+        .flow-arrow {
+            display: none;
+        }
+    }
 </style>
 
+<script>
+    function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+    
+    function revealOnScroll() {
+        var steps = document.querySelectorAll('.flow-step, .flow-arrow');
+        steps.forEach(function(step) {
+            if (isElementInViewport(step)) {
+                step.classList.add('visible');
+            }
+        });
+    }
+    
+    document.addEventListener('DOMContentLoaded', revealOnScroll);
+    window.addEventListener('scroll', revealOnScroll);
+</script>
 
         <!-- Infographic Section -->
         <section id="infographic">
