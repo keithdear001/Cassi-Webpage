@@ -423,9 +423,159 @@
     <section id="aggregation">
       <h2>Aggregation – Harnessing Collective Intelligence</h2>
       <p>We collect forecasts from across your organisation and from a diverse external crowd.</p>
-      <div class="infographic-placeholder">
-        [Forecasting Accuracy – 37% Better Infographic]
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cassi’s Superforecasting Victory</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      margin: 10px 0;
+    }
+    p {
+      line-height: 1.6;
+    }
+    .chart-container {
+      position: relative;
+      height: 400px;
+      margin: 40px auto;
+      width: 90%;
+    }
+    .insights {
+      margin-top: 30px;
+    }
+    .insight {
+      background: #e9f5ff;
+      padding: 15px;
+      border-left: 5px solid #007BFF;
+      margin-bottom: 20px;
+    }
+    .annotation {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-top: 20px;
+    }
+  </style>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Cassi’s Superforecasting Victory</h1>
+    <h2>Dominating the 330-Question, 3-Month Challenge</h2>
+    <p style="text-align: center;">
+      At <strong>Cassi</strong>, our state-of-the-art forecasting algorithms have redefined predictive analysis. With a score of <strong>3,833.4</strong>, we outperformed the closest competitor by <strong>409.3</strong> points and eclipsed the sixth-place score by an astonishing <strong>731.5</strong> points.
+    </p>
+    
+    <div class="chart-container">
+      <canvas id="leaderboardChart"></canvas>
+    </div>
+    
+    <div class="insights">
+      <div class="insight">
+        <h3>Unrivalled Performance</h3>
+        <p>
+          In the recent Metaculus AIB Q3 Tournament, <strong>Cassi</strong> achieved a score of <strong>3,833.4</strong>. Our nearest competitor, MWG, scored <strong>3,424.1</strong> – a gap of <strong>409.3</strong> points that underscores the scale of our victory. Even the sixth-place forecaster (pgodzinai) trailed by <strong>731.5</strong> points.
+        </p>
       </div>
+      <div class="insight">
+        <h3>Superior Accuracy</h3>
+        <p>
+          With an impressive forecasting accuracy of <strong>75%</strong>, Cassi not only redefines what is possible in algorithmic prediction but also outclasses human averages – often humorously dubbed as Tetlock’s “dart-throwing chimps.”
+        </p>
+      </div>
+      <div class="insight">
+        <h3>The 330-Question Challenge</h3>
+        <p>
+          Over a rigorous 3-month period featuring 330 diverse questions, Cassi’s data-driven approach demonstrated that advanced analytics and machine learning can decisively shape the future of forecasting.
+        </p>
+      </div>
+    </div>
+    
+    <p class="annotation">
+      Data sourced from the Metaculus AIB Q3 Tournament Leaderboard.
+    </p>
+  </div>
+  
+  <script>
+    // Data from the leaderboard
+    const leaderboardData = {
+      labels: ['Cassi', '2nd: MWG', '3rd: histerio', '4th: mf-bot-1', '5th: Jay_Bailey_Bot', '6th: pgodzinai'],
+      scores: [3833.4, 3424.1, 3386.0, 3355.2, 3130.7, 3101.9]
+    };
+
+    const ctx = document.getElementById('leaderboardChart').getContext('2d');
+    const leaderboardChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: leaderboardData.labels,
+        datasets: [{
+          label: 'Forecasting Score',
+          data: leaderboardData.scores,
+          backgroundColor: [
+            'rgba(0, 123, 255, 0.8)',  // Cassi in blue to stand out
+            'rgba(108, 117, 125, 0.8)',
+            'rgba(108, 117, 125, 0.8)',
+            'rgba(108, 117, 125, 0.8)',
+            'rgba(108, 117, 125, 0.8)',
+            'rgba(108, 117, 125, 0.8)'
+          ],
+          borderColor: [
+            'rgba(0, 123, 255, 1)',
+            'rgba(108, 117, 125, 1)',
+            'rgba(108, 117, 125, 1)',
+            'rgba(108, 117, 125, 1)',
+            'rgba(108, 117, 125, 1)',
+            'rgba(108, 117, 125, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: false,
+            title: {
+              display: true,
+              text: 'Score'
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return ' Score: ' + context.parsed.y;
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+
     </section>
 
     <section id="divination">
