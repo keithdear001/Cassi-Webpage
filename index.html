@@ -10,7 +10,7 @@
   <meta property="og:description" content="Cassi AI delivers advanced forecasting and decision-making through innovative analytics.">
   <meta property="og:image" content="Cassi.png">
   <meta property="og:url" content="https://www.cassi-ai.com">
-  <!-- Chart.js CDN loaded deferentially -->
+  <!-- Chart.js CDN (loaded deferentially) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
   <style>
     /* CSS Variables for easy theme management */
@@ -61,9 +61,7 @@
     .logo img:hover {
       transform: scale(1.05);
     }
-    .contact-top {
-      margin-top: 5px;
-    }
+    .contact-top { margin-top: 5px; }
     .cta-button.small {
       padding: 5px 10px;
       font-size: 0.9rem;
@@ -72,12 +70,8 @@
       border-radius: 4px;
       transition: background 0.3s ease;
     }
-    .cta-button.small:hover {
-      background: var(--accent-color);
-    }
-    nav {
-      position: relative;
-    }
+    .cta-button.small:hover { background: var(--accent-color); }
+    nav { position: relative; }
     .nav-menu {
       display: flex;
       list-style: none;
@@ -100,9 +94,7 @@
       transform: translateX(-50%);
       transition: width 0.3s ease;
     }
-    .nav-menu li a:hover::after {
-      width: 100%;
-    }
+    .nav-menu li a:hover::after { width: 100%; }
     /* Hamburger Menu for Mobile */
     .hamburger {
       display: none;
@@ -234,34 +226,51 @@
       opacity: 1;
     }
 
-    /* AGGREGATION CHART */
-    .chart-container {
-      position: relative;
-      height: 400px;
-      width: 90%;
-      margin: 40px auto;
+    /* AGGREGATION SECTION (New Content) */
+    #aggregation {
+      background: var(--white);
+    }
+    #aggregation h2 {
+      color: var(--secondary-color);
+    }
+    #aggregation p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    /* We assume an aggregation infographic image is available */
+    .aggregation-infographic {
+      text-align: center;
+    }
+    .aggregation-infographic img {
+      max-width: 80%;
+      height: auto;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: block;
     }
 
     /* DIVINATION SECTION */
+    #divination {
+      background: #000;
+      color: var(--white);
+    }
+    #divination h2 {
+      font-size: 2.8em;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+    #divination p {
+      font-size: 1.2em;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
     .divination-section {
       position: relative;
       padding: 80px 20px;
       text-align: center;
-      background-color: #000;
       border-radius: 8px;
       overflow: hidden;
-    }
-    .divination-section h2 {
-      font-size: 2.8em;
-      margin-bottom: 20px;
-      letter-spacing: 1px;
-      color: var(--white);
-    }
-    .divination-section p {
-      font-size: 1.2em;
-      margin-bottom: 40px;
-      line-height: 1.6;
-      color: var(--white);
     }
     .divination-image {
       max-width: 90%;
@@ -293,6 +302,26 @@
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
+    /* New Victory Subsection in Divination */
+    .victory-section {
+      margin-top: 40px;
+    }
+    .victory-section h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .victory-section p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    /* Chart container remains the same */
+    .chart-container {
+      position: relative;
+      height: 400px;
+      width: 90%;
+      margin: 20px auto;
+    }
 
     /* CONTACT SECTION */
     #contact { text-align: center; }
@@ -313,7 +342,7 @@
       .header-container { flex-direction: column; align-items: center; }
       .header-left { align-items: center; margin-bottom: 10px; }
       .logo img { height: 70px; }
-      .infographic-container img { max-width: 100%; }
+      .infographic-container img, .aggregation-infographic img { max-width: 100%; }
       .flow-step { max-width: 80%; }
       .nav-menu {
         flex-direction: column;
@@ -410,19 +439,12 @@
         </div>
       </section>
       
-      <!-- AGGREGATION SECTION -->
+      <!-- AGGREGATION SECTION (New Content) -->
       <section id="aggregation">
-        <h2>Aggregation – Harnessing Collective Intelligence</h2>
-        <p>We collect forecasts from within your organisation and from a diverse external crowd.</p>
-        <div class="container">
-          <h3>Cassi’s Superforecasting Victory</h3>
-          <p style="text-align: center;">Our algorithms scored <strong>3,833.4</strong>, outpacing competitors by 409.3 to 731.5 points.</p>
-          <div class="chart-container">
-            <canvas id="leaderboardChart"></canvas>
-          </div>
-          <div style="text-align: center; font-style: italic; color: #555; margin-top: 10px;">
-            Data from the Metaculus AIB Q3 Tournament Leaderboard.
-          </div>
+        <h2>Aggregation – Harmonising Diverse Perspectives</h2>
+        <p>At Cassi, we merge insights from your internal data, external market forecasts, and AI-driven analytics into a dynamic, evolving forecast. Our aggregation process provides a comprehensive view of the changing probabilities that shape your strategy, ensuring decisions are always informed by the latest data.</p>
+        <div class="aggregation-infographic">
+          <img src="aggregation.png" alt="Dynamic Aggregation of Forecasts" loading="lazy">
         </div>
       </section>
       
@@ -433,6 +455,17 @@
         <div class="divination-section">
           <div class="background-animation"></div>
           <img src="divination.png" alt="Dynamic Strategy Dashboard Visualization" class="divination-image" loading="lazy">
+        </div>
+        <!-- Superforecasting Victory Subsection (Moved from Aggregation) -->
+        <div class="victory-section">
+          <h3>Superforecasting Victory</h3>
+          <p>Our AI-driven forecasting demonstrated unparalleled performance—outscoring competitors by a significant margin.</p>
+          <div class="chart-container">
+            <canvas id="leaderboardChart"></canvas>
+          </div>
+          <div style="text-align: center; font-style: italic; color: var(--white); margin-top: 10px;">
+            Data from the Metaculus AIB Q3 Tournament Leaderboard.
+          </div>
         </div>
       </section>
       
@@ -474,7 +507,7 @@
       });
     });
     
-    /* Chart.js Initialization */
+    /* Chart.js Initialization for Superforecasting Victory */
     window.addEventListener('load', function() {
       const ctx = document.getElementById('leaderboardChart').getContext('2d');
       const leaderboardData = {
