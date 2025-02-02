@@ -13,7 +13,6 @@
   <!-- Chart.js CDN (loaded deferentially) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
   <style>
-    /* CSS Variables for easy theme management */
     :root {
       --primary-color: #007BFF;
       --accent-color: #0056b3;
@@ -24,553 +23,79 @@
       --header-height: 80px;
     }
 
-    /* Reset & Global Styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: Arial, sans-serif;
-      ne-height: 1.6;
+      line-height: 1.6;
       color: var(--text-color);
       background: var(--bg-color);
     }
     a { text-decoration: none; color: inherit; }
 
-    <!-- HEADER -->
-<header role="banner">
-  <div class="header-container">
-    <div class="header-left">
-      <div class="logo">
-        <a href="index.html" aria-label="Cassi AI Home">
-          <img src="Web-Logo.jpeg" alt="Cassi AI Logo" loading="lazy">
-        </a>
-      </div>
-      <div class="contact-top">
-        <a href="mailto:keith.dear001@cassi-ai.com" class="cta-button small">Contact Us</a>
-      </div>
-    </div>
-    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
-    <nav aria-label="Main navigation">
-      <ul class="nav-menu" id="nav-menu">
-        <li><a href="#elicitation">Elicitation</a></li>
-        <li><a href="#aggregation">Aggregation</a></li>
-        <li><a href="#divination">Divination</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<style>
-  /* HEADER STYLES */
-  header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: var(--white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-  
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 40px;
-    flex-wrap: wrap; /* Prevents elements from shifting unexpectedly */
-  }
-  
-  .header-left {
-    display: flex;
-    flex-direction: row; /* Keep elements in a row */
-    align-items: center;
-    gap: 20px; /* Adds spacing between logo and contact button */
-  }
-
-  .logo img {
-    height: 80px;
-    transition: transform 0.2s ease;
-  }
-  
-  .logo img:hover {
-    transform: scale(1.05);
-  }
-
-  .contact-top {
-    margin-top: 0;
-    display: flex;
-    align-items: center;
-  }
-
-  .cta-button.small {
-    padding: 5px 10px;
-    font-size: 0.9rem;
-    background: var(--primary-color);
-    color: var(--white);
-    border-radius: 4px;
-    transition: background 0.3s ease;
-  }
-  
-  .cta-button.small:hover {
-    background: var(--accent-color);
-  }
-
-  nav {
-    position: relative;
-  }
-
-  .nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-  }
-
-  .nav-menu li a {
-    font-weight: 600;
-    color: var(--secondary-color);
-    position: relative;
-    padding-bottom: 5px;
-  }
-
-  .nav-menu li a::after {
-    content: "";
-    position: absolute;
-    height: 2px;
-    width: 0;
-    background: var(--primary-color);
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: width 0.3s ease;
-  }
-
-  .nav-menu li a:hover::after {
-    width: 100%;
-  }
-
-  /* Responsive Fixes */
-  @media (max-width: 768px) {
-    .header-container {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .header-left {
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .nav-menu {
-      flex-direction: column;
-      gap: 10px;
-      background: var(--white);
-      position: absolute;
-      top: 100%;
-      right: 0;
-      width: 200px;
-      display: none;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .nav-menu.show {
-      display: flex;
-    }
-
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    .hamburger .hamburger-line {
-      width: 25px;
-      height: 3px;
-      background: var(--secondary-color);
-    }
-  }
-
-  /* FIX: MOBILE ALIGNMENT FOR SECTIONS */
-  section {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-    text-align: center;
-  }
-
-  #elicitation, #aggregation, #divination {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  @media (max-width: 768px) {
-    #elicitation, #aggregation, #divination {
-      text-align: center;
-      padding: 20px;
-      width: 90%;
-      margin: 0 auto;
-    }
-
-    .infographic-container img {
-      max-width: 100%;
-    }
-  }
-</style>
-
-    /* DIVINATION SECTION STYLES */
-#divination {
-  background: #000;
-  color: #fff; /* Ensure all text defaults to white */
-  padding: 2rem 1rem;
-}
-#divination h2 {
-  font-size: 2.8em;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
-  color: #fff; /* Force title text to white */
-}
-#divination p {
-  font-size: 1.2em;
-  margin-bottom: 40px;
-  line-height: 1.6;
-  color: #fff; /* Force paragraph text to white */
-}
-.divination-section {
-  position: relative;
-  padding: 80px 20px;
-  text-align: center;
-  border-radius: 8px;
-  overflow: hidden;
-}
-.divination-image {
-  max-width: 90%;
-  height: auto;
-  margin: 0 auto;
-  border: 4px solid rgba(255,255,255,0.2);
-  box-shadow: 0 6px 25px rgba(0,0,0,0.6);
-  border-radius: 8px;
-  animation: pulse 4s ease-in-out infinite;
-  transition: transform 0.3s ease;
-}
-.divination-image:hover {
-  transform: scale(1.05);
-}
-@keyframes pulse {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.02); }
-  100% { transform: scale(1); }
-}
-.background-animation {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(0,123,255,0.2), transparent 70%);
-  animation: rotateBg 20s linear infinite;
-  z-index: -1;
-}
-@keyframes rotateBg {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Victory Subsection */
-.victory-section h3 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: #fff;
-}
-.victory-section p {
-  font-size: 1rem;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #fff;
-}
-.chart-container {
-  position: relative;
-  height: 400px;
-  width: 90%;
-  margin: 20px auto;
-}
-.chart-caption {
-  text-align: center;
-  font-style: italic;
-  color: #fff;
-  margin-top: 10px;
-}
-
-    .nav-menu li a:hover::after { width: 100%; }
-    /* Hamburger Menu for Mobile */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-    .hamburger .hamburger-line {
-      width: 25px;
-      height: 3px;
-      background: var(--secondary-color);
-    }
-
-    /* HERO SECTION */
-    .hero {
-      position: relative;
+    /* HEADER STYLES */
+    header {
+      position: fixed;
+      top: 0;
       width: 100%;
-      height: 100vh;
-      background: url('Cassi.png') no-repeat center center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: var(--white);
-      padding-top: var(--header-height);
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 60%;
-    }
-    .hero h1 { font-size: 3rem; font-weight: bold; margin-bottom: 20px; }
-    .hero p { font-size: 1.2rem; margin-bottom: 20px; }
-    .cta-button {
-      padding: 10px 20px;
-      font-size: 1.2rem;
-      background: var(--primary-color);
-      color: var(--white);
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
-    .cta-button:hover { background: var(--accent-color); }
-
-    /* MAIN & CONTAINER */
-    main { margin-top: var(--header-height); }
-    .container {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 3rem;
-      padding: 1.5rem;
       background: var(--white);
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
     }
-    section h2 { color: var(--secondary-color); margin-bottom: 1rem; }
-    .cta {
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem;
-      background: var(--secondary-color);
-      color: var(--white);
-      border-radius: 4px;
-      font-weight: bold;
-    }
-
-    /* INFOGRAPHIC & IMAGES */
-    .infographic-container {
-      background: var(--bg-color);
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .infographic-container img {
-      max-width: 80%;
-      height: auto;
-      margin: 20px auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      display: block;
-    }
-
-    /* FLOWCHART */
-    .flowchart {
+    .header-container {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+    }
+    .header-left {
+      display: flex;
       align-items: center;
       gap: 20px;
-      flex-wrap: wrap;
-      text-align: center;
     }
-    .flow-step {
-      flex: 1 1 200px;
-      max-width: 30%;
-      background: var(--secondary-color);
+    .logo img {
+      height: 80px;
+      transition: transform 0.2s ease;
+    }
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+    .contact-top {
+      display: flex;
+      align-items: center;
+    }
+    .cta-button.small {
+      padding: 5px 10px;
+      font-size: 0.9rem;
+      background: var(--primary-color);
       color: var(--white);
-      border-radius: 8px;
-      padding: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: transform 0.3s ease, opacity 0.6s ease;
+      border-radius: 4px;
+      transition: background 0.3s ease;
     }
-    .flow-step.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .flow-step img {
-      width: 50px;
-      margin-bottom: 10px;
-    }
-    .flow-arrow {
-      font-size: 2rem;
-      color: var(--secondary-color);
-      opacity: 0;
-      transition: opacity 0.6s ease;
-    }
-    .flow-arrow.visible {
-      opacity: 1;
-    }
+    .cta-button.small:hover { background: var(--accent-color); }
 
-    /* AGGREGATION SECTION (New Content) */
-    #aggregation {
-      background: var(--white);
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 30px;
     }
-    #aggregation h2 {
+    .nav-menu li a {
+      font-weight: 600;
       color: var(--secondary-color);
-    }
-    #aggregation p {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-    /* We assume an aggregation infographic image is available */
-    .aggregation-infographic {
-      text-align: center;
-    }
-    .aggregation-infographic img {
-      max-width: 80%;
-      height: auto;
-      margin: 20px auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      display: block;
-    }
-
-    /* DIVINATION SECTION */
-    #divination {
-      background: #000;
-      color: var(--white);
-    }
-    #divination h2 {
-      font-size: 2.8em;
-      margin-bottom: 20px;
-      letter-spacing: 1px;
-    }
-    #divination p {
-      font-size: 1.2em;
-      margin-bottom: 40px;
-      line-height: 1.6;
-    }
-    .divination-section {
       position: relative;
-      padding: 80px 20px;
-      text-align: center;
-      border-radius: 8px;
-      overflow: hidden;
+      padding-bottom: 5px;
     }
-    .divination-image {
-      max-width: 90%;
-      height: auto;
-      margin: 0 auto;
-      border: 4px solid rgba(255,255,255,0.2);
-      box-shadow: 0 6px 25px rgba(0,0,0,0.6);
-      border-radius: 8px;
-      animation: pulse 4s ease-in-out infinite;
-      transition: transform 0.3s ease;
-    }
-    .divination-image:hover { transform: scale(1.05); }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.02); }
-      100% { transform: scale(1); }
-    }
-    .background-animation {
+    .nav-menu li a::after {
+      content: "";
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(0,123,255,0.2), transparent 70%);
-      animation: rotateBg 20s linear infinite;
-      z-index: -1;
+      height: 2px;
+      width: 0;
+      background: var(--primary-color);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
     }
-    @keyframes rotateBg {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    /* New Victory Subsection in Divination */
-    .victory-section {
-      margin-top: 40px;
-    }
-    .victory-section h3 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    .victory-section p {
-      font-size: 1rem;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    /* Chart container remains the same */
-    .chart-container {
-      position: relative;
-      height: 400px;
-      width: 90%;
-      margin: 20px auto;
-    }
-
-    /* CONTACT SECTION */
-    #contact { text-align: center; }
-
-    /* FOOTER */
-    footer {
-      background: var(--secondary-color);
-      color: var(--white);
-      text-align: center;
-      padding: 1rem;
-    }
-
-    /* RESPONSIVE Tweaks */
-    @media (max-width: 768px) {
-      .hero-content { max-width: 80%; }
-      .hero h1 { font-size: 2.5rem; }
-      .hero p { font-size: 1rem; }
-      .header-container { flex-direction: column; align-items: center; }
-      .header-left { align-items: center; margin-bottom: 10px; }
-      .logo img { height: 70px; }
-      .infographic-container img, .aggregation-infographic img { max-width: 100%; }
-      .flow-step { max-width: 80%; }
-      .nav-menu {
-        flex-direction: column;
-        gap: 10px;
-        background: var(--white);
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 200px;
-        display: none;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      }
-      .nav-menu.show { display: flex; }
-      .hamburger { display: flex; }
-    }
+    .nav-menu li a:hover::after { width: 100%; }
   </style>
 </head>
 <body>
@@ -584,15 +109,11 @@
           </a>
         </div>
         <div class="contact-top">
-      <a href="mailto:keith.dear001@cassi-ai.com" class="cta-button small">Contact</a>
+          <a href="mailto:keith.dear001@cassi-ai.com" class="cta-button small">Contact</a>
+        </div>
       </div>
-      <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
       <nav aria-label="Main navigation">
-        <ul class="nav-menu" id="nav-menu">
+        <ul class="nav-menu">
           <li><a href="#elicitation">Elicitation</a></li>
           <li><a href="#aggregation">Aggregation</a></li>
           <li><a href="#divination">Divination</a></li>
@@ -600,171 +121,21 @@
       </nav>
     </div>
   </header>
-  
+
   <!-- MAIN CONTENT -->
   <main role="main">
-    <!-- HERO SECTION -->
-    <section class="hero" aria-label="Hero section">
+    <section class="hero">
       <div class="hero-content">
         <h1>Smarter Strategy</h1>
         <p>Unlock your organisation's intelligence to make faster, smarter, bias-free decisions.</p>
-        <a href="#contact" class="cta-button">Request a Demo</a>
+        <a href="mailto:keith.dear001@cassi-ai.com" class="cta-button">Request a Demo</a>
       </div>
     </section>
-    
-    <div class="container">
-      <!-- ELICITATION SECTION -->
-      <section id="elicitation">
-        <h2>Elicitation – Accessing the Inside &amp; Outside View</h2>
-        <p>We begin by clarifying your goals—defining measurable outcomes and eliciting diverse perspectives both inside and outside your organisation.</p>
-        <div class="infographic-container">
-          <h3>Specificity: Your Brain's Superpower</h3>
-          <p>Clarity in what you want to achieve leads to better plans and more effective execution.</p>
-          <div class="flowchart" id="flowchart">
-            <div class="flow-step">
-              <img src="https://keithdear001.github.io/Cassi-Webpage/goal_icon.png" alt="Goal Setting Icon" loading="lazy">
-              <p><strong>Step 1:</strong> Define your outcome.</p>
-            </div>
-            <div class="flow-arrow">➡</div>
-            <div class="flow-step">
-              <img src="https://keithdear001.github.io/Cassi-Webpage/metrics_icon.png" alt="Metrics Icon" loading="lazy">
-              <p><strong>Step 2:</strong> Identify success metrics.</p>
-            </div>
-            <div class="flow-arrow">➡</div>
-            <div class="flow-step">
-              <img src="https://keithdear001.github.io/Cassi-Webpage/timeline_icon.png" alt="Timeline Icon" loading="lazy">
-              <p><strong>Step 3:</strong> Set a timeline.</p>
-            </div>
-          </div>
-          <p style="font-size: 0.85rem; color: #555; margin-top: 10px;">
-            Sources: Shapira (2019), Hetherington &amp; Dear (2016), Dear (2019)
-          </p>
-        </div>
-      </section>
-      
-      <!-- WIDER PERSPECTIVES SECTION -->
-      <section id="infographic">
-        <h2>The Power of Eliciting Wider Perspectives</h2>
-        <p>Before Cassi turns to external data, it strengthens your leadership’s thinking. Structured elicitation reduces ambiguity and enhances decision-making.</p>
-        <div class="infographic-container">
-          <img src="https://keithdear001.github.io/Cassi-Webpage/diverse_decision_making.png" alt="Impact of Eliciting Wider Perspectives" loading="lazy">
-        </div>
-      </section>
-      
-      <!-- AGGREGATION SECTION (New Content) -->
-      <section id="aggregation">
-        <h2>Aggregation – Harmonising Diverse Perspectives</h2>
-        <p>At Cassi, we apply the insight's from Tetlock's Superforecasting, the idea that the median forecast generally outperforms individual forecasts - not just in guessing the number of red marbles in a jar, or, from Francis Galton, the weight of Ox at fair, but across domains.  We merge insights from your internal, external, and AI-identified factors and forecasts into a dynamic, evolving analysis of your chances of success. Our aggregation process provides a comprehensive view of the changing probabilities that shape your strategy, ensuring decisions are always informed by the latest information, and allowing you to ask 'what if' questions to refine your approach.</p>
-        <div class="aggregation-infographic">
-          <img src="aggregation.png" alt="Dynamic Aggregation of Forecasts" loading="lazy">
-        </div>
-      </section>
-      
-      <!-- DIVINATION SECTION -->
-<section id="divination">
-  <h2>Divination – AI-Augmented Insight</h2>
-  <p>
-    Our AI doesn’t just crunch numbers—it generates new questions and forecasts.
-    Experience a dynamic dashboard that redefines predictive analysis, helping you identify what you most need to do to maximise your chances of success.
-  </p>
-  <div class="divination-section">
-    <div class="background-animation"></div>
-    <img src="divination.png" alt="Dynamic Strategy Dashboard Visualization" class="divination-image" loading="lazy">
-  </div>
-  <!-- Superforecasting Victory Subsection -->
-  <div class="victory-section">
-    <h3>Superforecasting Victory</h3>
-    <p>
-      Our AI-driven forecasting demonstrated unparalleled performance—outscoring competitors by a significant margin.
-    </p>
-    <div class="chart-container">
-      <canvas id="leaderboardChart"></canvas>
-    </div>
-    <div class="chart-caption">
-      Data from the Metaculus AIB Q3 Tournament Leaderboard.
-    </div>
-  </div>
-</section>
-
-      
-      <!-- CONTACT SECTION -->
-      <section id="contact">
-        <h2>Transform Your Strategy Today</h2>
-        <a href="mailto:keith.dear001@cassi-ai.com" class="cta">Contact Us</a>
-      </section>
-    </div>
   </main>
-  
+
   <!-- FOOTER -->
   <footer role="contentinfo">
     <p>&copy; 2025 Cassi AI. All rights reserved.</p>
   </footer>
-  
-  <script>
-    /* Hamburger Menu Toggle */
-    document.querySelector('.hamburger').addEventListener('click', function() {
-      const navMenu = document.getElementById('nav-menu');
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', !expanded);
-      navMenu.classList.toggle('show');
-    });
-    
-    /* Intersection Observer for Flowchart Animations */
-    document.addEventListener('DOMContentLoaded', function() {
-      const observerOptions = { threshold: 0.2 };
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-      document.querySelectorAll('.flow-step, .flow-arrow').forEach(el => {
-        observer.observe(el);
-      });
-    });
-    
-    /* Chart.js Initialization for Superforecasting Victory */
-    window.addEventListener('load', function() {
-      const ctx = document.getElementById('leaderboardChart').getContext('2d');
-      const leaderboardData = {
-        labels: ['Cassi', '2nd: MWG', '3rd: histerio', '4th: mf-bot-1', '5th: Jay_Bailey_Bot', '6th: pgodzinai'],
-        datasets: [{
-          data: [3833.4, 3424.1, 3386.0, 3355.2, 3130.7, 3101.9],
-          backgroundColor: [
-            'rgba(0, 123, 255, 0.8)',
-            'rgba(108, 117, 125, 0.8)',
-            'rgba(108, 117, 125, 0.8)',
-            'rgba(108, 117, 125, 0.8)',
-            'rgba(108, 117, 125, 0.8)',
-            'rgba(108, 117, 125, 0.8)'
-          ],
-          borderColor: [
-            'rgba(0, 123, 255, 1)',
-            'rgba(108, 117, 125, 1)',
-            'rgba(108, 117, 125, 1)',
-            'rgba(108, 117, 125, 1)',
-            'rgba(108, 117, 125, 1)',
-            'rgba(108, 117, 125, 1)'
-          ],
-          borderWidth: 1
-        }]
-      };
-      new Chart(ctx, {
-        type: 'bar',
-        data: leaderboardData,
-        options: {
-          scales: {
-            y: {
-              beginAtZero: false,
-              title: { display: true, text: 'Score' }
-            }
-          },
-          plugins: { legend: { display: false } }
-        }
-      });
-    });
-  </script>
 </body>
 </html>
