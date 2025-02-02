@@ -1,9 +1,9 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cassi AI – Better Decisions </title>
+  <title>Cassi AI – Better Decisions</title>
   <style>
     /* Basic Reset */
     * {
@@ -11,49 +11,161 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
       color: #333;
       background: #f9f9f9;
     }
-    header {
-      background: #002147;
-      color: #fff;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      display: inline-block;
-      vertical-align: middle;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-    }
-    nav {
-      background: #fff;
-      padding: 1rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    nav ul {
-      list-style: none;
+
+    /* Header Styling */
+    .header {
       display: flex;
-      justify-content: center;
-      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: white;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     }
-    nav a {
+
+    /* Logo */
+    .logo img {
+      height: 60px;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Navigation Bar */
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li {
+      display: inline;
+    }
+
+    .nav-menu a {
       text-decoration: none;
-      color: #002147;
-      font-weight: bold;
+      color: #001F54;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      padding-bottom: 5px;
+      position: relative;
     }
+
+    /* Hover Effect */
+    .nav-menu a::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 0;
+      background: #007BFF;
+      transition: width 0.3s ease-in-out;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url('Cassi.png') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    /* Dark Overlay */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 60%;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #0056b3;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-content {
+        max-width: 80%;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .nav-menu {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+
     .container {
       max-width: 1100px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
+
     section {
       margin-bottom: 3rem;
       padding: 1rem;
@@ -61,21 +173,12 @@
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+
     section h2 {
       color: #002147;
       margin-bottom: 1rem;
     }
-    .infographic-placeholder {
-      height: 200px;
-      background: #e0e0e0;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      color: #666;
-      margin-top: 1rem;
-    }
+
     .cta {
       display: inline-block;
       margin-top: 1.5rem;
@@ -86,191 +189,81 @@
       border-radius: 4px;
       font-weight: bold;
     }
+
     footer {
       background: #002147;
       color: #fff;
       text-align: center;
       padding: 1rem;
     }
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      nav ul {
-        flex-direction: column;
-      }
-    }
-    /* Ensure all images are responsive */
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#elicitation">Elicitation</a></li>
-      <li><a href="#aggregation">Aggregation</a></li>
-      <li><a href="#divination">Divination</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
 
-  <!-- Header / Hero Section -->
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">
+        <img src="Web-Logo.jpeg" alt="Cassi AI Logo">
+      </a>
+    </div>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#elicitation">Elicitation</a></li>
+        <li><a href="#aggregation">Aggregation</a></li>
+        <li><a href="#divination">Divination</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <style>
-    /* Header Styling */
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 40px;
-        background: white;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    }
-
-    /* Logo */
-    .logo img {
-        height: 60px; /* Adjust to fit design */
-        transition: transform 0.2s ease-in-out;
-    }
-
-    .logo img:hover {
-        transform: scale(1.05); /* Slight hover effect */
-    }
-
-    /* Navigation Bar */
-    .nav-menu {
-        display: flex;
-        list-style: none;
-        gap: 30px;
-        margin: 0;
-        padding: 0;
-    }
-
-    .nav-menu li {
-        display: inline;
-    }
-
-    .nav-menu a {
-        text-decoration: none;
-        color: #001F54; /* Deep navy */
-        font-weight: 600;
-        font-size: 1rem;
-        letter-spacing: 0.5px;
-        padding-bottom: 5px;
-        position: relative;
-    }
-
-    /* Hover Effect */
-    .nav-menu a::after {
-        content: "";
-        display: block;
-        height: 2px;
-        width: 0;
-        background: #007BFF;
-        transition: width 0.3s ease-in-out;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .nav-menu a:hover::after {
-        width: 100%;
-    }
-
-    /* Responsive Menu for Mobile */
-    @media (max-width: 768px) {
-        .header {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .logo img {
-            height: 50px;
-        }
-
-        .nav-menu {
-            flex-direction: column;
-            gap: 15px;
-        }
-    }
-</style>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Transform Strategy with AI</h1>
+      <p>Unlock predictive intelligence to make faster, smarter, bias-free decisions.</p>
+      <a href="#contact" class="cta-button">Request a Demo</a>
+    </div>
+  </section>
 
   <!-- Main Content -->
   <div class="container">
-    
-    <!-- Elicitation Section -->
+
     <section id="elicitation">
       <h2>Elicitation – Accessing the Inside &amp; Outside View</h2>
-      </p>
-      <p>
-        We start by clarifying your goals — defining measurable outcomes and resolution criteria. But it’s more than that:
-        we unlock insights from every level of your organisation. And we give you access to the outside view.
-      </p>
-      <p>
-       <strong>How it works:</strong> Imagine you are the CEO in a boardroom, confronted with a critical decision. 
-      </p>
-      <p> Usually information is filtered at every level (high latency, low resolution, by the time it reaches you), and the diversity of advice you receive is limited by the nunmber of board room chairs.
-      </p>
-      <p> With Cassi an unexpected insight can come from anywhere within the organisation, free of bias, from all levels, faster - perhaps revealing a hidden opportunity or risk. This is the power of elciting a more complete inside view. Even before we seek and objectively score the factors idenitified across your organisation, in our experience, the act of elcitation from the C-Suite drives much greater rigour than decisiions and plans might otherwise recieve. Cassi elicits clearly what you as CEO and your C-Suite want to achieve - your desired outcome. Cassi helps you clearly set out your resolution criteria: how would you know if you had succeeded? Cassi elicits from you the most important factors for your success. By time you turn to the rest of your staff for the inside view, Cassi has already improved your decision-making. This is the power of elicitation. 
-      </p>
-        Then we let you turn to the outside view - which the late Daniel Kahneman, eminent psychologist and author of 'Thinking Fast and Slow' has showed was crucial to debiasing decisions. Cassi does this by enabling you to run competitions or select the diversity you lack internally, cognitive, national, professional, whatever it may be, and have them generate factors that might influence your decision. In doing so we ensure you have the maximum diversity of perspective on your problem, help further reduce biases from HIPPOs (Highest Paid Persons Opinion), confirmatiion bias, the risk that maybe your organisation has become an echo chamber. The outside view helps you reduce risks, spot opportunities, and ensure you have principled way of demonstrating to investors and other stakeholders that you are doing all you can to ensure you are asking yourself the right questions at all stages of the planning process. 
-      <p>
+      <p>We start by clarifying your goals — defining measurable outcomes and resolution criteria.</p>
       <div class="infographic-placeholder">
         [Inside &amp; Outside View Infographic]
       </div>
     </section>
-    
-    <!-- Aggregation Section -->
+
     <section id="aggregation">
       <h2>Aggregation – Harnessing Collective Intelligence</h2>
-      <p>
-        We collect forecasts from across your organisation and from a diverse external crowd, aggregating them into a comprehensive view that’s proven to be <strong>37% more accurate</strong> than conventional methods.
-      </p>
-      <p>
-        <strong>How it works:</strong> A multinational firm turns to Cassi to forecast economic trends. By merging insights from senior executives, junior analysts, and external experts, they unlock a forecasting model that delivers accuracy unmatched by traditional approaches.
-      </p>
+      <p>We collect forecasts from across your organisation and from a diverse external crowd.</p>
       <div class="infographic-placeholder">
         [Forecasting Accuracy – 37% Better Infographic]
       </div>
     </section>
-    
-    <!-- Divination Section -->
+
     <section id="divination">
       <h2>Divination – AI-Augmented Insight</h2>
-      <p>
-        Our AI doesn’t just crunch numbers—it ‘divines’ new questions and forecasts, working hand in hand with the crowd to keep your strategy dynamic and ever-evolving.
-      </p>
-      <p>
-        <strong>How it works:</strong> Just as market data begins to shift, Cassi’s AI generates fresh insights, prompting the leadership to adjust strategy in real time. What was once a static plan is now a living blueprint that adapts to new challenges and opportunities.
-      </p>
+      <p>Our AI doesn’t just crunch numbers—it generates new questions and forecasts.</p>
       <div class="infographic-placeholder">
         [Dynamic Strategy Dashboard Visualization]
       </div>
     </section>
 
-    <!-- Call-to-Action -->
     <section id="contact">
       <h2>Transform Your Strategy Today</h2>
-      <p>
-        With Cassi, every decision is informed by a fusion of human insight and AI precision—ensuring that your strategy evolves with your world.
-      </p>
       <a href="mailto:keith.dear001@cassi-ai.com" class="cta">Contact Us</a>
     </section>
-    
+
   </div>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Cassi AI. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
