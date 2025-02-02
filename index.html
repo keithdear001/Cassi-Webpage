@@ -94,6 +94,89 @@
       transform: translateX(-50%);
       transition: width 0.3s ease;
     }
+    /* DIVINATION SECTION STYLES */
+#divination {
+  background: #000;
+  color: #fff; /* Ensure all text defaults to white */
+  padding: 2rem 1rem;
+}
+#divination h2 {
+  font-size: 2.8em;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  color: #fff; /* Force title text to white */
+}
+#divination p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  color: #fff; /* Force paragraph text to white */
+}
+.divination-section {
+  position: relative;
+  padding: 80px 20px;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.divination-image {
+  max-width: 90%;
+  height: auto;
+  margin: 0 auto;
+  border: 4px solid rgba(255,255,255,0.2);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.6);
+  border-radius: 8px;
+  animation: pulse 4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+.divination-image:hover {
+  transform: scale(1.05);
+}
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+.background-animation {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,123,255,0.2), transparent 70%);
+  animation: rotateBg 20s linear infinite;
+  z-index: -1;
+}
+@keyframes rotateBg {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Victory Subsection */
+.victory-section h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.victory-section p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+}
+.chart-container {
+  position: relative;
+  height: 400px;
+  width: 90%;
+  margin: 20px auto;
+}
+.chart-caption {
+  text-align: center;
+  font-style: italic;
+  color: #fff;
+  margin-top: 10px;
+}
+
     .nav-menu li a:hover::after { width: 100%; }
     /* Hamburger Menu for Mobile */
     .hamburger {
@@ -449,25 +532,31 @@
       </section>
       
       <!-- DIVINATION SECTION -->
-      <section id="divination">
-        <h2>Divination – AI-Augmented Insight</h2>
-        <p>Our AI doesn’t just crunch numbers—it generates new questions and forecasts. Experience a dynamic dashboard that redefines predictive analysis.</p>
-        <div class="divination-section">
-          <div class="background-animation"></div>
-          <img src="divination.png" alt="Dynamic Strategy Dashboard Visualization" class="divination-image" loading="lazy">
-        </div>
-        <!-- Superforecasting Victory Subsection (Moved from Aggregation) -->
-        <div class="victory-section">
-          <h3>Superforecasting Victory</h3>
-          <p>Our AI-driven forecasting demonstrated unparalleled performance—outscoring competitors by a significant margin.</p>
-          <div class="chart-container">
-            <canvas id="leaderboardChart"></canvas>
-          </div>
-          <div style="text-align: center; font-style: italic; color: var(--white); margin-top: 10px;">
-            Data from the Metaculus AIB Q3 Tournament Leaderboard.
-          </div>
-        </div>
-      </section>
+<section id="divination">
+  <h2>Divination – AI-Augmented Insight</h2>
+  <p>
+    Our AI doesn’t just crunch numbers—it generates new questions and forecasts.
+    Experience a dynamic dashboard that redefines predictive analysis.
+  </p>
+  <div class="divination-section">
+    <div class="background-animation"></div>
+    <img src="divination.png" alt="Dynamic Strategy Dashboard Visualization" class="divination-image" loading="lazy">
+  </div>
+  <!-- Superforecasting Victory Subsection -->
+  <div class="victory-section">
+    <h3>Superforecasting Victory</h3>
+    <p>
+      Our AI-driven forecasting demonstrated unparalleled performance—outscoring competitors by a significant margin.
+    </p>
+    <div class="chart-container">
+      <canvas id="leaderboardChart"></canvas>
+    </div>
+    <div class="chart-caption">
+      Data from the Metaculus AIB Q3 Tournament Leaderboard.
+    </div>
+  </div>
+</section>
+
       
       <!-- CONTACT SECTION -->
       <section id="contact">
