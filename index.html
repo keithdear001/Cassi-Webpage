@@ -120,12 +120,89 @@
   </nav>
 
   <!-- Header / Hero Section -->
-  <header>
-    <img src="Web-Logo.jpeg" alt="Cassi AI Logo" style="max-height: 60px; vertical-align: middle;">
-    <h1>Cassi AI</h1>
-    <p>Better Decisions</p>
-    <a href="#contact" class="cta">Request a Demo</a>
-  </header>
+
+  <style>
+    /* Header Styling */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        background: white;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    }
+
+    /* Logo */
+    .logo img {
+        height: 60px; /* Adjust to fit design */
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .logo img:hover {
+        transform: scale(1.05); /* Slight hover effect */
+    }
+
+    /* Navigation Bar */
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-menu li {
+        display: inline;
+    }
+
+    .nav-menu a {
+        text-decoration: none;
+        color: #001F54; /* Deep navy */
+        font-weight: 600;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        padding-bottom: 5px;
+        position: relative;
+    }
+
+    /* Hover Effect */
+    .nav-menu a::after {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 0;
+        background: #007BFF;
+        transition: width 0.3s ease-in-out;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .nav-menu a:hover::after {
+        width: 100%;
+    }
+
+    /* Responsive Menu for Mobile */
+    @media (max-width: 768px) {
+        .header {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .nav-menu {
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+</style>
 
   <!-- Main Content -->
   <div class="container">
