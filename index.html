@@ -513,73 +513,35 @@ header {
 <body> 
   <!-- HEADER -->
 <header role="banner">
- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cassi AI – Better Decisions</title>
-  <meta name="description" content="Cassi AI: Unlock your organisation's intelligence with advanced forecasting and decision-making tools.">
-  <style>
-    :root {
-      --primary-color: #007BFF;
-      --accent-color: #0056b3;
-      --secondary-color: #002147;
-      --bg-color: #f9f9f9;
-      --white: #fff;
-      --text-color: #333;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: var(--bg-color); color: var(--text-color); }
-    a { text-decoration: none; color: inherit; }
-
-    /* Header Styling */
-    header {
-      position: fixed; top: 0; width: 100%; background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;
-    }
-    .header-container { display: flex; justify-content: space-between; align-items: center; padding: 10px 40px; }
-    .logo img { height: 80px; }
-    .cta-button.small { padding: 5px 10px; font-size: 0.9rem; background: var(--primary-color); color: var(--white); border-radius: 4px; }
-    .cta-button.small:hover { background: var(--accent-color); }
-    .nav-menu { display: flex; list-style: none; gap: 30px; }
-    .nav-menu li a { font-weight: 600; color: var(--secondary-color); }
-
-    /* Responsive Fixes */
-    @media (max-width: 768px) {
-      .header-container { flex-direction: column; text-align: center; }
-      .nav-menu { flex-direction: column; }
-    }
-
-    /* Centered Flowchart on Mobile */
-    @media (max-width: 768px) {
-      .flowchart { flex-direction: column; align-items: center; }
-      .flow-step, .flow-arrow { text-align: center; width: 100%; }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="header-container">
+  <div class="header-container">
+    <div class="header-left">
       <div class="logo">
-        <a href="index.html"><img src="Web-Logo.jpeg" alt="Cassi AI Logo"></a>
+        <a href="index.html" aria-label="Cassi AI Home">
+          <img src="Web-Logo.jpeg" alt="Cassi AI Logo" loading="lazy">
+        </a>
       </div>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="#elicitation">Elicitation</a></li>
-          <li><a href="#aggregation">Aggregation</a></li>
-          <li><a href="#divination">Divination</a></li>
-          <li><a href="form.html">Contact Us</a></li>
-          <li><a href="#about">About Us (Coming Soon)</a></li>
-          <li><a href="#team">Meet the Team (Coming Soon)</a></li>
-          <li><a href="#cases">Case Studies (Coming Soon)</a></li>
-        </ul>
-      </nav>
-      <a href="form.html" class="cta-button small">Request a Demo</a>
+      <div class="contact-top">
+        <a href="form.html" class="cta-button small">Contact</a>
+      </div>
     </div>
-  </header>
-</body>
-</html>
+    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    <nav aria-label="Main navigation">
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#elicitation">Elicitation</a></li>
+        <li><a href="#aggregation">Aggregation</a></li>
+        <li><a href="#divination">Divination</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="team.html">Meet the Team</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
+
   <!-- MAIN CONTENT -->
   <main role="main">
     <!-- HERO SECTION -->
