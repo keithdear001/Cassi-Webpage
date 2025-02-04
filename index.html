@@ -9,6 +9,7 @@
   <meta property="og:description" content="Cassi AI delivers advanced forecasting and decision-making through innovative analytics.">
   <meta property="og:image" content="Cassi.png">
   <meta property="og:url" content="https://www.cassi-ai.com">
+  <!-- Chart.js Library -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
   <style>
     :root {
@@ -20,28 +21,91 @@
       --text-color: #333;
       --header-height: 80px;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: var(--text-color); background: var(--bg-color); }
+    body { 
+      font-family: Arial, sans-serif; 
+      line-height: 1.6; 
+      color: var(--text-color); 
+      background: var(--bg-color);
+      /* Add padding-top so content isn’t hidden behind the fixed header */
+      padding-top: var(--header-height);
+    }
     a { text-decoration: none; color: inherit; }
 
+    /* Header Styles */
     header {
-      position: fixed; top: 0; width: 100%; background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: var(--header-height);
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
     }
-    .header-container { display: flex; justify-content: space-between; align-items: center; padding: 10px 40px; }
-    .logo img { height: 80px; }
-    .cta-button.small { padding: 5px 10px; font-size: 0.9rem; background: var(--primary-color); color: var(--white); border-radius: 4px; }
-    .cta-button.small:hover { background: var(--accent-color); }
-    .nav-menu { display: flex; list-style: none; gap: 30px; }
-    .nav-menu li a { font-weight: 600; color: var(--secondary-color); }
-
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+    }
+    .logo img { 
+      height: 80px;
+    }
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+    .nav-menu li a {
+      font-weight: 600;
+      color: var(--secondary-color);
+    }
+    .cta-button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: var(--primary-color);
+      color: var(--white);
+      border-radius: 4px;
+    }
+    .cta-button:hover {
+      background: var(--accent-color);
+    }
+    .cta-button.small {
+      padding: 5px 10px;
+      font-size: 0.9rem;
+    }
     @media (max-width: 768px) {
-      .header-container { flex-direction: column; text-align: center; }
-      .nav-menu { flex-direction: column; }
+      .header-container { 
+        flex-direction: column; 
+        text-align: center; 
+      }
+      .nav-menu { 
+        flex-direction: column; 
+      }
     }
+
+    /* Main Content Styles */
+    main { padding: 20px; }
+    .container { margin-top: 20px; }
+    section { margin-bottom: 40px; }
+    .hero {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .flowchart { 
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .flow-step { text-align: center; }
+    .flow-arrow { font-size: 1.5rem; }
+    .chart-container { max-width: 600px; margin: 20px auto; }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="header-container">
       <div class="logo">
@@ -61,13 +125,10 @@
       <a href="form.html" class="cta-button small">Request a Demo</a>
     </div>
   </header>
-</body>
-</html>
 
-
-  <!-- MAIN CONTENT -->
+  <!-- Main Content -->
   <main role="main">
-    <!-- HERO SECTION -->
+    <!-- Hero Section -->
     <section class="hero" aria-label="Hero section">
       <div class="hero-content">
         <h1>Smarter Strategy</h1>
@@ -75,110 +136,103 @@
         <a href="form.html" class="cta-button">Request a Demo</a>
       </div>
     </section>
-    
+
     <div class="container">
-      <!-- ELICITATION SECTION -->
+      <!-- Elicitation Section -->
       <section id="elicitation">
-        <h2>Elicitation – Specificity Your Brain's Superpower</h2>
-        <p>We begin by clarifying your goals — strengthing your leadership’s thinking. Structured elicitation reduces ambiguity and enhances decision-making.</p>
+        <h2>Elicitation – Specificity: Your Brain's Superpower</h2>
+        <p>We begin by clarifying your goals — strengthening your leadership’s thinking. Structured elicitation reduces ambiguity and enhances decision-making.</p>
         <div class="infographic-container">
-          </div>
-          <p>Clarity in what you want to achieve leads to better plans and more effective execution.</p>
-          <div class="flowchart" id="flowchart">
-            <div class="flow-step">
-              <img src="https://keithdear001.github.io/Cassi-Webpage/goal_icon.png" alt="Goal Setting Icon" loading="lazy">
-              <p><strong>Step 1:</strong> Define your outcome.</p>
-            </div>
-            <div class="flow-arrow">➡</div>
-            <div class="flow-step">
-              <img src="https://keithdear001.github.io/Cassi-Webpage/metrics_icon.png" alt="Metrics Icon" loading="lazy">
-              <p><strong>Step 2:</strong> Identify the key factors, and how you'd know you'd suceeded.</p>
-            </div>
-            <div class="flow-arrow">➡</div>
-            <div class="flow-step">
-              <img src="https://keithdear001.github.io/Cassi-Webpage/timeline_icon.png" alt="Timeline Icon" loading="lazy">
-              <p><strong>Step 3:</strong> Set a timeline.</p>
-            </div>
-          </div>
-          <p style="font-size: 0.85rem; color: #555; margin-top: 10px;">
-            Sources: Shapira (2019), Hetherington &amp; Dear (2016), Dear (2019)
-          </p>
+          <!-- Insert infographic if available -->
         </div>
+        <p>Clarity in what you want to achieve leads to better plans and more effective execution.</p>
+        <div class="flowchart" id="flowchart">
+          <div class="flow-step">
+            <img src="https://keithdear001.github.io/Cassi-Webpage/goal_icon.png" alt="Goal Setting Icon" loading="lazy">
+            <p><strong>Step 1:</strong> Define your outcome.</p>
+          </div>
+          <div class="flow-arrow">➡</div>
+          <div class="flow-step">
+            <img src="https://keithdear001.github.io/Cassi-Webpage/metrics_icon.png" alt="Metrics Icon" loading="lazy">
+            <p><strong>Step 2:</strong> Identify the key factors and how you'll know you've succeeded.</p>
+          </div>
+          <div class="flow-arrow">➡</div>
+          <div class="flow-step">
+            <img src="https://keithdear001.github.io/Cassi-Webpage/timeline_icon.png" alt="Timeline Icon" loading="lazy">
+            <p><strong>Step 3:</strong> Set a timeline.</p>
+          </div>
+        </div>
+        <p style="font-size: 0.85rem; color: #555; margin-top: 10px;">
+          Sources: Shapira (2019), Hetherington &amp; Dear (2016), Dear (2019)
+        </p>
       </section>
-      
-      <!-- WIDER PERSPECTIVES SECTION -->
+
+      <!-- Wider Perspectives Section -->
       <section id="infographic">
         <h2>The Power of Eliciting Wider Perspectives</h2>
-        <p>Next we help you unleash the collective intelligence of everyone inside your organisation, and access diverse perspectives from outside it.  </p>
+        <p>Next we help you unleash the collective intelligence of everyone inside your organisation, and access diverse perspectives from outside it.</p>
         <div class="infographic-container">
           <img src="https://keithdear001.github.io/Cassi-Webpage/diverse_decision_making.png" alt="Impact of Eliciting Wider Perspectives" loading="lazy">
         </div>
       </section>
-      
-      <!-- AGGREGATION SECTION (New Content) -->
+
+      <!-- Aggregation Section -->
       <section id="aggregation">
         <h2>Aggregation – Harmonising Diverse Perspectives</h2>
-        <p>At Cassi, we apply the insight's from Tetlock's Superforecasting, the idea that the median forecast generally outperforms individual forecasts - not just in guessing the number of red marbles in a jar, or, from Francis Galton, the weight of Ox at fair, but across domains.  We merge insights from your internal, external, and AI-identified factors and forecasts into a dynamic, evolving analysis of your chances of success. Our aggregation process provides a comprehensive view of the changing probabilities that shape your strategy, ensuring decisions are always informed by the latest information, and allowing you to ask 'what if' questions to refine your approach.</p>
+        <p>At Cassi, we apply insights from Tetlock's Superforecasting, where the median forecast generally outperforms individual forecasts—not just for guessing the number of red marbles in a jar or the weight of an ox at a fair, but across domains. We merge insights from your internal, external, and AI-identified factors and forecasts into a dynamic, evolving analysis of your chances of success. Our aggregation process provides a comprehensive view of the changing probabilities that shape your strategy, ensuring decisions are always informed by the latest information, and allowing you to ask 'what if' questions to refine your approach.</p>
         <div class="aggregation-infographic">
           <img src="aggregation.png" alt="Dynamic Aggregation of Forecasts" loading="lazy">
         </div>
       </section>
-      
-      <!-- DIVINATION SECTION -->
-<section id="divination">
-  <h2>Divination – AI-Augmented Insight</h2>
-  <p>
-    Our AI doesn’t just crunch numbers—it generates new questions and forecasts.
-    Experience a dynamic dashboard that redefines predictive analysis, helping you identify what you most need to do to maximise your chances of success.
-  </p>
-  <div class="divination-section">
-    <div class="background-animation"></div>
-    <img src="divination.png" alt="Dynamic Strategy Dashboard Visualization" class="divination-image" loading="lazy">
-  </div>
-  <!-- Superforecasting Victory Subsection -->
-  <div class="victory-section">
-    <h3>Superforecasting Victory</h3>
-    <p>
-      Our AI-driven forecasting demonstrated unparalleled performance—outscoring competitors by a significant margin.
-    </p>
-    <div class="chart-container">
-      <canvas id="leaderboardChart"></canvas>
-    </div>
-    <div class="chart-caption">
-      Data from the Metaculus AIB Q3 Tournament Leaderboard.
-    </div>
-  </div>
-</section>
 
-      
-      <!-- CONTACT SECTION -->
+      <!-- Divination Section -->
+      <section id="divination">
+        <h2>Divination – AI-Augmented Insight</h2>
+        <p>
+          Our AI doesn’t just crunch numbers—it generates new questions and forecasts.
+          Experience a dynamic dashboard that redefines predictive analysis, helping you identify what you most need to do to maximise your chances of success.
+        </p>
+        <div class="divination-section">
+          <div class="background-animation">
+            <!-- Optionally, insert an animation or background effect -->
+          </div>
+          <img src="divination.png" alt="Dynamic Strategy Dashboard Visualization" class="divination-image" loading="lazy">
+        </div>
+        <!-- Superforecasting Victory Subsection -->
+        <div class="victory-section">
+          <h3>Superforecasting Victory</h3>
+          <p>
+            Our AI-driven forecasting demonstrated unparalleled performance—outscoring competitors by a significant margin.
+          </p>
+          <div class="chart-container">
+            <canvas id="leaderboardChart"></canvas>
+          </div>
+          <div class="chart-caption">
+            Data from the Metaculus AIB Q3 Tournament Leaderboard.
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
       <section id="contact">
         <h2>Transform Your Strategy Today</h2>
         <a href="form.html" class="cta-button small">Contact Us</a>
       </section>
     </div>
   </main>
-  
-  <!-- FOOTER -->
+
+  <!-- Footer -->
   <footer role="contentinfo">
     <p>&copy; 2025 Cassi AI. All rights reserved.</p>
   </footer>
-  
+
   <script>
-    /* Hamburger Menu Toggle */
-    document.querySelector('.hamburger').addEventListener('click', function() {
-      const navMenu = document.getElementById('nav-menu');
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', !expanded);
-      navMenu.classList.toggle('show');
-    });
-    
-    /* Intersection Observer for Flowchart Animations */
+    // Intersection Observer for Flowchart Animations
     document.addEventListener('DOMContentLoaded', function() {
       const observerOptions = { threshold: 0.2 };
       const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-          if(entry.isIntersecting) {
+          if (entry.isIntersecting) {
             entry.target.classList.add('visible');
             observer.unobserve(entry.target);
           }
@@ -188,8 +242,8 @@
         observer.observe(el);
       });
     });
-    
-    /* Chart.js Initialization for Superforecasting Victory */
+
+    // Chart.js Initialization for Superforecasting Victory
     window.addEventListener('load', function() {
       const ctx = document.getElementById('leaderboardChart').getContext('2d');
       const leaderboardData = {
