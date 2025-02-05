@@ -1,12 +1,8 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect posted data (you can later add sanitization and processing)
-    $name = $_POST['name'] ?? '';
-    // You can collect other fields similarly...
-
-    // For testing, simply display a confirmation message.
-    echo "Thank you, " . htmlspecialchars($name) . ". Your request has been received.";
+// Test that the file is accessible and handles POST correctly.
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    echo "POST request received. Name: " . htmlspecialchars($_POST['name'] ?? 'N/A');
 } else {
-    echo "Invalid form submission.";
+    echo "This page only accepts POST requests.";
 }
 ?>
