@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apply for a Job at Cassi AI</title>
+  <!-- You can add Open Graph tags here if desired -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    form div {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    /* Honeypot field (hidden from users) */
+    .honeypot {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Job Application</h1>
+  <!-- Replace the form action URL with your Formspree (or alternative) endpoint -->
+  <form action="https://formspree.io/f/yourFormId" method="POST" enctype="multipart/form-data">
+    <div>
+      <label for="name">Name <span style="color: red;">*</span></label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="email">Email <span style="color: red;">*</span></label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="message">Introductory Message</label>
+      <textarea id="message" name="message" rows="4" placeholder="Tell us a bit about yourself"></textarea>
+    </div>
+    <div>
+      <label for="cv">Upload CV <span style="color: red;">*</span></label>
+      <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+    </div>
+    <!-- Honeypot field for spam filtering -->
+    <div class="honeypot">
+      <label for="website">Website (Leave this blank)</label>
+      <input type="text" id="website" name="website">
+    </div>
+    <button type="submit">Submit Application</button>
+  </form>
+</body>
+</html>
