@@ -68,4 +68,74 @@
   /* ---------- DOCUMENT CARDS ---------- */
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;padding:0 5% 90px;max-width:1100px;margin:0 auto}
   .doc-card{
-    background:#fff;padding:26px 24px
+    background:#fff;padding:26px 24px;border-radius:var(--radius);
+    box-shadow:var(--cardShadow);transition:.25s
+  }
+  .doc-card:hover{transform:translateY(-4px);box-shadow:0 6px 18px rgba(0,0,0,.12)}
+  .doc-card h3{font-size:1.25rem;margin-bottom:10px;font-weight:700;color:var(--navy)}
+  .doc-card p{font-size:0.95rem;margin-bottom:18px}
+  .doc-card a{color:var(--blue);font-weight:600;text-decoration:none}
+  .doc-card a:hover{text-decoration:underline}
+  </style>
+</head>
+
+<body>
+
+  <!-- ---------- HERO ---------- -->
+  <section class="hero" id="top" data-aos="fade-right">
+    <div class="copy">
+      <h1>Cassi&nbsp;AI Investor&nbsp;Portal</h1>
+      <p>Access our latest deck, financial model, and product roadmap.<br>NDA signature required.</p>
+      <a href="#request" class="cta">Request Access&nbsp;→</a>
+    </div>
+    <div class="image" data-aos="fade-left" data-aos-delay="150">
+      <img src="images/investor-illustration.png" alt="Investor dashboard graphic">
+    </div>
+  </section>
+
+  <!-- ---------- REQUEST FORM ---------- -->
+  <form id="request" class="request-card shadow"
+        action="https://formspree.io/f/mjkwkrpo" method="POST"
+        data-aos="fade-up" data-aos-delay="200">
+    <h2>Step 1  ―  Request NDA</h2>
+
+    <input type="text"  name="name"     placeholder="Full name*"        required>
+    <input type="email" name="email"    placeholder="Business email*"   required>
+    <input type="text"  name="company"  placeholder="Company (optional)">
+    <textarea name="note" rows="4"
+              placeholder="Anything you'd like us to know?"></textarea>
+
+    <!-- honeypot spam trap -->
+    <input type="text" name="website" class="hp">
+
+    <button type="submit">Send NDA via DocuSign</button>
+  </form>
+
+  <!-- ---------- DOCUMENT GRID ---------- -->
+  <section class="grid">
+
+    <div class="doc-card" data-aos="zoom-in">
+      <h3>Investor Presentation</h3>
+      <p>Our detailed deck outlining vision, traction, and growth strategy.</p>
+      <a href="https://your-cloud-storage-link/investor_deck.pdf" target="_blank">View Deck →</a>
+    </div>
+
+    <div class="doc-card" data-aos="zoom-in" data-aos-delay="100">
+      <h3>Financial Information</h3>
+      <p>Historical financials and multi-year projections.</p>
+      <a href="https://your-cloud-storage-link/financials.pdf" target="_blank">View Financials →</a>
+    </div>
+
+    <div class="doc-card" data-aos="zoom-in" data-aos-delay="200">
+      <h3>Corporate & Legal</h3>
+      <p>Founding docs, cap table, IP assignments, key contracts.</p>
+      <a href="https://your-cloud-storage-link/legal.zip" target="_blank">View Docs →</a>
+    </div>
+
+  </section>
+
+  <!-- AOS script -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({once:true});</script>
+</body>
+</html>
