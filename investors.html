@@ -23,6 +23,20 @@
   *{box-sizing:border-box;margin:0}
   body{font-family:"Inter",Arial,sans-serif;background:var(--bg);color:#333;line-height:1.55}
 
+    /* --- Locked button for documents --- */
+.btn-locked{
+  display:inline-block;
+  padding:.7rem 1.6rem;
+  background:#c5cbd4;            /* grey */
+  color:#50555b;
+  border:none;
+  border-radius:var(--radius,8px);
+  font-weight:600;
+  cursor:not-allowed;
+  user-select:none;
+}
+.btn-locked:hover{background:#c5cbd4}  /* no colour change */
+
   /* ---------- HERO ---------- */
   .hero{
     display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
@@ -111,24 +125,36 @@
   </form>
 
   <!-- ---------- DOCUMENT GRID ---------- -->
+ <p style="text-align:center;margin-top:-40px;margin-bottom:60px"
+   data-aos="fade-up" data-aos-delay="150">
+  Documents show “Locked 🔒” until we receive your signed NDA.
+</p>
   <section class="grid">
 
     <div class="doc-card" data-aos="zoom-in">
       <h3>Investor Presentation</h3>
       <p>Our detailed deck outlining vision, traction, and growth strategy.</p>
-      <a href="https://your-cloud-storage-link/investor_deck.pdf" target="_blank">View Deck →</a>
+      <button class="btn-locked" disabled title="Available after NDA">
+  Locked 🔒
+</button>
     </div>
 
     <div class="doc-card" data-aos="zoom-in" data-aos-delay="100">
       <h3>Financial Information</h3>
       <p>Historical financials and multi-year projections.</p>
-      <a href="https://your-cloud-storage-link/financials.pdf" target="_blank">View Financials →</a>
+      <button class="btn-locked" disabled title="Available after NDA">
+  Locked 🔒
+</button>
+
     </div>
 
     <div class="doc-card" data-aos="zoom-in" data-aos-delay="200">
       <h3>Corporate & Legal</h3>
       <p>Founding docs, cap table, IP assignments, key contracts.</p>
-      <a href="https://your-cloud-storage-link/legal.zip" target="_blank">View Docs →</a>
+      <button class="btn-locked" disabled title="Available after NDA">
+  Locked 🔒
+</button>
+
     </div>
 
   </section>
